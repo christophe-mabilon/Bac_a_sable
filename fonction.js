@@ -26,6 +26,41 @@ const consonnes = [
   "z",
 ];
 
+const unitee = [
+  "",
+  "un",
+  "deux",
+  "trois",
+  "quatre",
+  "cinq",
+  "six",
+  "sept",
+  "huit",
+  "neuf",
+];
+const dixaine = [
+  "",
+  "dix",
+  "vingt",
+  "trente",
+  "quarante",
+  "cinquante",
+  "soixante",
+  "soixante-dix",
+  "quatre-vingt",
+  "quatre-vingt-dix",
+];
+
+const exceptions = [
+  "",
+  "onze",
+  "douze",
+  "treize",
+  "quatorze",
+  "quinze",
+  "seize",
+];
+
 function shuffle(array) {
   array.sort((a, b) => 0.5 - Math.random());
 }
@@ -88,54 +123,27 @@ function triEnFonctionDesmajuscules() {
  *
  */
 
-let unitee = [
-  "",
-  "un",
-  "deux",
-  "trois",
-  "quatre",
-  "cinq",
-  "six",
-  "sept",
-  "huit",
-  "neuf",
-];
-let dixaine = [
-  "",
-  "dix",
-  "vingt",
-  "trente",
-  "quarante",
-  "cinquante",
-  "soixante",
-  "soixante-dix",
-  "quatre-vingt",
-  "quatre-vingt-dix",
-];
-
-let exceptions = ["", "onze", "douze", "treize", "quatorze", "quinze", "seize"];
-
-let nombre = 99;
+let nombre = 1;
 
 const result5 = getNommbre(nombre);
 console.log("result 5 : ", result5);
 
 function getNommbre(nombre) {
-  if (nombre < 16 && nombre > 10) {
+  if (nombre <= 16 && nombre > 10) {
     return exceptions[nombre - 10];
   }
   let unite = nombre % 10;
 
   let dizaine = parseInt(nombre / 10);
-  if (dizaine == 1) {
+  if (dizaine < 1) {
     return dixaine[unite];
   } else {
-    return `${dixaine[dizaine]} - ${unitee[unite]}`;
+    return `${dixaine[dizaine]}-${unitee[unite]}`;
   }
 }
 
 /**
- *  6.
+ *  6.Écrivez une fonction qui prend un tableau d'objets et un nom de propriété et renvoie un tableau des valeurs de cette propriété dans chaque objet.
  */
 
 let arrayObject = [
